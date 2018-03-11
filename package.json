@@ -1,0 +1,31 @@
+{
+  "name": "practise",
+  "version": "1.0.0",
+  "description": "https://github.com/theduuuuude",
+  "main": "practise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build",
+    "start": "npm run build & node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theduuuuude/practise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theduuuuude/practise/issues"
+  },
+  "homepage": "https://github.com/theduuuuude/practise#readme",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "lodash": "^4.17.5",
+    "poker-odds-calculator": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
