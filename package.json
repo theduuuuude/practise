@@ -4,6 +4,7 @@
   "description": "https://github.com/theduuuuude",
   "main": "practise.js",
   "scripts": {
+    "dev": "babel dev -d build & node build/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d build",
     "start": "npm run build & node ./build/index.js"
@@ -20,12 +21,17 @@
   },
   "homepage": "https://github.com/theduuuuude/practise#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "chalk": "^2.3.2",
     "lodash": "^4.17.5",
-    "poker-odds-calculator": "^0.2.1"
+    "node-storage": "0.0.7",
+    "poker-odds-calculator": "^0.2.1",
+    "webpack": "^4.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1"
   }
 }
