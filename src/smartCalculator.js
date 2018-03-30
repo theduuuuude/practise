@@ -1,7 +1,9 @@
 import {CardGroup, OddsCalculator} from 'poker-odds-calculator';
 import fs from 'fs'
 import Storage from 'node-storage'
-var store = new Storage('data.json');
+
+let iterations = 1000
+var store = new Storage(`data${iterations}.json`);
 
 var sort = (a,b)=>{if(a>b)return 1;if(b>a)return -1;return 0}
 
@@ -17,7 +19,8 @@ var getKey = (hand1, hand2)=>{
 var calculateResult = (hand1, hand2) =>{
     const player1Cards = CardGroup.fromString(hand1);
     const player2Cards = CardGroup.fromString(hand2);
-    const result = OddsCalculator.calculate([player1Cards, player2Cards]);
+    const result = OddsCalculator.calculate([player1Cards, player2Cards],null,iterations);
+    // console.log(result)
     let equityHero = result.equities[0].getEquity()
     let equityVillain = result.equities[1].getEquity()
     let tie = result.equities[1].getTiePercentage()
@@ -37,10 +40,11 @@ const getResult = (hand1, hand2)=>{
         let reverseKey = getKey(hand2,hand1)
         result = store.get(reverseKey)
         if(result){
+
             return {
                 equityHero: result.equityVillain,
                 equityVillain: result.equityHero,
-                tie
+                tie: result.tie
             }
         } else {
             result = calculateResult(hand1,hand2)

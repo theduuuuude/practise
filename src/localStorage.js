@@ -15,7 +15,7 @@ const storage = {
                 'result',result,
                 'data',data
             )
-            console.log(`setting key ${key} and result ${result}`)
+            // console.log(`setting key ${key} and result ${result}`)
             data[key] = result
             data = _.uniq(data)
             console.log(data)
